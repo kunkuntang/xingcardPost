@@ -16,38 +16,40 @@
 				<span class="xingcard">星名片</span>
 				<span class="contacts">华广人的通讯录</span>
 				<div class="download">
-					<img class="left" src="img/Android.png" />
-					<img class="right" src="img/Weixin-logo.png" />
+					<img id="android" class="left" src="img/Android.png" />
+					<img id="weixin" class="right" src="img/Weixin-logo.png" />
 				</div>
 				<span class="contacts_detail">还在因为找不到组织人员联系方式而焦头烂额吗？</span>
 				<span class="contacts_detail">还在经历从通讯名单中把电话号码复制粘贴到拨号界面的繁琐吗？</span>
 				<span class="solution"> 使用星名片，一键解决</span>
+				<img id="download" src="img/downloadApp.png"/>
+				<img id="scan" src="img/weixin.png"/>
 				<img id="applogo" src="img/applogo.png" />
 			</div>
 		</div>
 		<section class="content">
 			<div class="detail">
 				<div class="container">
-					<span class="title" id="title">ID登录</span>
-					<span class="declare">用内部ID登录星名片</span>
-					<span class="declare">避免个人信息泄露</span>
-					<img src="img/pic1.png" alt="">
+					<span class="title" id="title1">ID登录</span>
+					<span class="declare" id="declare_11">用内部ID登录星名片</span>
+					<span class="declare" id="declare_12">避免个人信息泄露</span>
+					<img id="img1" src="img/pic1.png" alt="">
 				</div>
 			</div>
 			<div class="detail">
 				<div class="container">
-					<span class="title" id="title">一键通讯</span>
-					<span class="declare">点击按钮</span>
-					<span class="declare">即可拔号或发短信</span>
-					<img src="img/pic2.png" alt="">
+					<span class="title" id="title2">一键通讯</span>
+					<span class="declare" id="declare_21">点击按钮</span>
+					<span class="declare" id="declare_22">即可拔号或发短信</span>
+					<img id="img2" src="img/pic2.png" alt="">
 				</div>
 			</div>
 			<div class="detail">
 				<div class="container">
-					<span class="title" id="title">网页版</span>
-					<span class="declare">IOS用户可以使用网页版星名片</span>
-					<span class="declare">沟通同样快捷</span>
-					<img src="img/pic3.png" alt="">
+					<span class="title" id="title3">网页版</span>
+					<span class="declare" id="declare_31">IOS用户可以使用网页版星名片</span>
+					<span class="declare" id="declare_32">沟通同样快捷</span>
+					<img id="img3" src="img/pic3.png" alt="">
 				</div>
 			</div>
 		</section>
@@ -59,19 +61,21 @@
 		</footer>
 	</body>
 	<script>
-		document.onload = function() {
+		window.onload = function() {
 			! function Init() {
-				var title = document.getElementById('title');
+				var section1 = {title: document.getElementById('title1'), span1: document.getElementById('declare_11'), span2: document.getElementById('declare_12'),img: document.getElementById('img1')};
+				var section2 = {title: document.getElementById('title2'), span1: document.getElementById('declare_21'), span2: document.getElementById('declare_22'),img: document.getElementById('img2')};
+				var section3 = {title: document.getElementById('title3'), span1: document.getElementById('declare_31'), span2: document.getElementById('declare_32'),img: document.getElementById('img3')};
+				var android = document.getElementById('android');
+				var weixin = document.getElementById('weixin');
 				var winHeight = document.body.clientHeight;
 				var scrollTop = 0;
-				console.log(winHeight / 2);
-				if (document.addEventListener) {
-					document.addEventListener('DOMMouseScroll', scrollFunc, false);
-				} //W3C
-				window.onmousewheel = document.onmousewheel = scrollFunc; //IE/Opera/Chrome
+				registeMouseWheel(section1,section2,section3,winHeight,scrollTop);
+				download(android);
+				scan(weixin);
 			}();
 
-			function registeMouseWheel() {
+			function registeMouseWheel(section1,section2,section3,winHeight,scrollTop) {
 				var scrollFunc = function(e) {
 					var direct = 0;
 					e = e || window.event;
@@ -79,7 +83,22 @@
 						if (e.wheelDelta != 0) { //当滑轮向上滚动时
 							scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 							if (scrollTop > winHeight / 2) {
-								fadeIn(title);
+								fadeIn(section1.title);
+								fadeIn(section1.span1);
+								fadeIn(section1.span2);
+								fadeIn(section1.img);
+							}
+							if (scrollTop > 1200) {
+								fadeIn(section2.title);
+								fadeIn(section2.span1);
+								fadeIn(section2.span2);
+								fadeIn(section2.img);
+							}
+							if (scrollTop >1800) {
+								fadeIn(section3.title);
+								fadeIn(section3.span1);
+								fadeIn(section3.span2);
+								fadeIn(section3.img);
 							}
 						}
 					} else if (e.detail) { //Firefox滑轮事件
@@ -87,16 +106,71 @@
 							scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 							console.log(scrollTop);
 							if (scrollTop > winHeight / 2) {
-								fadeIn(title);
+								fadeIn(section1.title);
+								fadeIn(section1.span1);
+								fadeIn(section1.span2);
+								fadeIn(section1.img);
+							}
+							if (scrollTop > 1200) {
+								fadeIn(section2.title);
+								fadeIn(section2.span1);
+								fadeIn(section2.span2);
+								fadeIn(section2.img);
+							}
+							if (scrollTop >1800) {
+								fadeIn(section3.title);
+								fadeIn(section3.span1);
+								fadeIn(section3.span2);
+								fadeIn(section3.img);
 							}
 						}
 					}
 				}
+				if (document.addEventListener) {
+					document.addEventListener('DOMMouseScroll', scrollFunc, false);
+				} //W3C
+				window.onmousewheel = document.onmousewheel = scrollFunc; //IE/Opera/Chrome
 			}
 
 			function fadeIn(obj) {
-				obj.style.left = 0;
-				obj.style.opacity = 1;
+				if(obj.nodeName == "IMG"){
+					obj.style.left = 140 + 'px';
+					obj.style.top = 130 + 'px';
+					obj.style.opacity = 1;
+				}else{
+					obj.style.left = 0;
+					obj.style.top = 0;
+					obj.style.opacity = 1;
+				}
+				
+			}
+			
+			function download(obj){
+					var downloadApp = document.getElementById('download');
+				obj.onmouseover = function(){
+					downloadApp.style.top = 400 + 'px';
+					downloadApp.style.left = -17 + 'px';
+					downloadApp.style.opacity = 1;
+				}
+				obj.onmouseout = function(){
+					downloadApp.style.top = 450 + 'px';
+					downloadApp.style.left = -60 + 'px';
+					downloadApp.style.opacity = 0;
+				}
+			}
+			
+			function scan(obj){
+					var weixin = document.getElementById('scan');
+				obj.onmouseover = function(){
+					weixin.style.top = 400 + 'px';
+					weixin.style.right = -17 + 'px';
+					weixin.style.opacity = 1;
+				}
+				obj.onmouseout = function(){
+					weixin.style.top = 450 + 'px';
+					weixin.style.right = -60 + 'px';
+					weixin.style.opacity = 0;
+				}
 			}
 		}
 	</script>

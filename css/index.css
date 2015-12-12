@@ -50,64 +50,97 @@ html {
 	height: 100%;
 	width: 100%;
 }
-header{
+
+header {
 	width: 100%;
 	height: 70px;
 	background-color: #232427;
 	padding-top: 10px;
 }
-header .logo{
+
+header .logo {
 	background-image: url(../img/logo.png);
 	width: 103px;
 	height: 57px;
 	margin-left: 150px;
 }
-.banner{
+
+.banner {
 	width: 100%;
 	height: 1000px;
 	background-image: url(../img/banner.png);
 	background-position: center;
 }
-.banner .banner_container{
+
+.banner .banner_container {
 	width: 730px;
-	height: 850px;
+	height: 940px;
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 60px;
 	position: relative;
 }
-.banner .banner_container span{
+
+.banner .banner_container span {
+	font-family: "myfont";
 	margin-top: 40px;
 	display: block;
 	color: #FFFFFF;
 	font-size: 25px;
 }
-.banner .banner_container .download{
+
+.banner .banner_container .download {
 	overflow: hidden;
 	margin-top: 30px;
 }
-.banner .banner_container  .left{
+
+.banner .banner_container .left {
 	float: left;
+	cursor: pointer;
 }
-.banner .banner_container .right{
+
+.banner .banner_container .right {
 	float: right;
+	cursor: pointer;
 }
-.banner .banner_container .xingcard{
+
+.banner .banner_container .xingcard {
 	font-size: 120px;
 }
-.banner .banner_container .contacts{
+
+.banner .banner_container .contacts {
 	font-size: 30px;
 	margin-top: 10px;
 }
-.banner .banner_container .contacts_detail{
+
+.banner .banner_container .contacts_detail {
 	font-size: 25px;
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 }
-.banner .banner_container .solution{
-	font-size: 30px;		
-	color: rgba(255,255,255,0.8);
+
+.banner .banner_container .solution {
+	font-size: 30px;
+	color: rgba(255, 255, 255, 0.8);
 }
-#applogo{
+
+#download {
+	position: absolute;
+	top: 450px;
+	left: -60px;
+	transition: all .25s linear;
+	opacity: 0;
+}
+
+#scan {
+	position: absolute;
+	top: 450px;
+	right: -60px;
+	transition: all .25s linear;
+	opacity: 0;
+	
+}
+
+#applogo {
 	display: block;
 	position: absolute;
 	bottom: 0;
@@ -115,26 +148,27 @@ header .logo{
 	margin-left: -67px;
 }
 
-
-
-.content{
+.content {
 	background-color: #3397ff;
 	font-family: "微软雅黑";
 }
-.content .detail{
+
+.content .detail {
 	width: 100%;
 	height: 620px;
 }
-.content .detail .container{
+
+.content .detail .container {
 	width: 700px;
 	height: 595px;
 	margin: 0 auto;
 	padding-top: 25px;
 	position: relative;
 }
-.content .detail .container .title{
+
+.content .detail .container .title {
 	position: relative;
-	left: -150px;
+	left: -50px;
 	opacity: 0;
 	border-radius: 20px;
 	display: block;
@@ -145,27 +179,78 @@ header .logo{
 	font-size: 30px;
 	background-color: #ffffff;
 	color: #3397FF;
-	transition: all 1s linear;
+	transition: all .8s linear;
 }
-.title_play{
+
+.title_play {
 	left: 0px;
 	opacity: 1;
 }
 
-.content .container .declare{
+.content .container .declare {
 	position: relative;
+	left: -30px;
 	display: block;
 	color: #FFFFFF;
 	font-size: 22px;
 	margin-top: 30px;
 	margin-left: 30px;
+	opacity: 0;
 }
-.content .container img{
+
+.content .container #declare_11 {
+	transition: all .5s linear 0.25s;
+}
+
+.content .container #declare_12 {
+	transition: all .5s linear 0.4s;
+}
+
+.content .container #declare_21 {
+	transition: all .5s linear 0.25s;
+	left: 0;
+	top: -35px;
+}
+
+.content .container #declare_22 {
+	transition: all .5s linear 0.4s;
+	left: 0;
+	top: -50px;
+}
+
+.content .container #declare_31 {
+	transition: all .5s linear 0.25s;
+	top: -35px;
+}
+
+.content .container #declare_32 {
+	transition: all .5s linear 0.4s;
+	top: -50px;
+}
+
+.content .container img {
 	position: absolute;
 	top: 130px;
-	left: 140px;
+	left: 180px;
+	opacity: 0;
 }
-footer{
+
+.content .container #img1 {
+	transition: all .5s linear;
+}
+
+.content .container #img2 {
+	transition: all .5s linear;
+	left: 140px;
+	top: 180px;
+}
+
+.content .container #img3 {
+	transition: all .5s linear;
+	top: 180px;
+}
+
+footer {
 	font-family: "微软雅黑";
 	width: 100%;
 	height: 160px;
@@ -174,11 +259,18 @@ footer{
 	font-size: 20px;
 	position: relative;
 }
-footer .footer{
+
+footer .footer {
 	width: 380px;
 	text-align: center;
 	position: absolute;
 	bottom: 15px;
 	left: 50%;
 	margin-left: -190px;
+}
+
+@font-face {
+	font-family: "myfont";
+	src: url(../font/MicrosoftYaHei.ttf) format('truetype');
+	font-weight: 100;
 }
