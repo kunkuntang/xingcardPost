@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<header>
+			<div class="logo"></div>
+		</header>
+		<div class="banner">
+			<div class="banner_container">
+				<span class="xingcard">星名片</span>
+				<span class="contacts">华广人的通讯录</span>
+				<div class="download">
+					<img class="left" src="img/Android.png" />
+					<img class="right" src="img/Weixin-logo.png" />
+				</div>
+				<span class="contacts_detail">还在因为找不到组织人员联系方式而焦头烂额吗？</span>
+				<span class="contacts_detail">还在经历从通讯名单中把电话号码复制粘贴到拨号界面的繁琐吗？</span>
+				<span class="solution"> 使用星名片，一键解决</span>
+				<img id="applogo" src="img/applogo.png" />
+			</div>
+		</div>
+		<section class="content">
+			<div class="detail">
+				<div class="container">
+					<span class="title" id="title">ID登录</span>
+					<span class="declare">用内部ID登录星名片</span>
+					<span class="declare">避免个人信息泄露</span>
+					<img src="img/pic1.png" alt="">
+				</div>
+			</div>
+			<div class="detail">
+				<div class="container">
+					<span class="title" id="title">一键通讯</span>
+					<span class="declare">点击按钮</span>
+					<span class="declare">即可拔号或发短信</span>
+					<img src="img/pic2.png" alt="">
+				</div>
+			</div>
+			<div class="detail">
+				<div class="container">
+					<span class="title" id="title">网页版</span>
+					<span class="declare">IOS用户可以使用网页版星名片</span>
+					<span class="declare">沟通同样快捷</span>
+					<img src="img/pic3.png" alt="">
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="footer">
+				<span>华南理工大学广州学院801</span>
+				<span>Copyright&copy;2006-2015星空创新中心</span>
+			</div>
+		</footer>
+	</body>
+	<script>
+		document.onload = function() {
+			! function Init() {
+				var title = document.getElementById('title');
+				var winHeight = document.body.clientHeight;
+				var scrollTop = 0;
+				console.log(winHeight / 2);
+				if (document.addEventListener) {
+					document.addEventListener('DOMMouseScroll', scrollFunc, false);
+				} //W3C
+				window.onmousewheel = document.onmousewheel = scrollFunc; //IE/Opera/Chrome
+			}();
+
+			function registeMouseWheel() {
+				var scrollFunc = function(e) {
+					var direct = 0;
+					e = e || window.event;
+					if (e.wheelDelta) { //判断浏览器IE，谷歌滑轮事件            
+						if (e.wheelDelta != 0) { //当滑轮向上滚动时
+							scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+							if (scrollTop > winHeight / 2) {
+								fadeIn(title);
+							}
+						}
+					} else if (e.detail) { //Firefox滑轮事件
+						if (e.detail != 0) { //当滑轮向上滚动时
+							scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+							console.log(scrollTop);
+							if (scrollTop > winHeight / 2) {
+								fadeIn(title);
+							}
+						}
+					}
+				}
+			}
+
+			function fadeIn(obj) {
+				obj.style.left = 0;
+				obj.style.opacity = 1;
+			}
+		}
+	</script>
+
+</html>
