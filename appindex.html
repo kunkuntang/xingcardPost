@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/appindex.css"/>
+	</head>
+	<body>
+		<div id="view">
+		<div id="outer">
+		<header>
+			<div class="logo"></div>
+		</header>
+		<div class="banner">
+			<div class="banner_container">
+				<img class="xingcard" src="img/xingcard.png"/>
+				<!--<span class="xingcard">星名片</span>
+				<span class="contacts">华广人的通讯录</span>-->
+				<div class="download">
+					<img id="android" class="left" src="img/Android.png" />
+					<img id="weixin" class="right" src="img/Weixin-logo.png" />
+				</div>
+				<!--<img class="xingfont" src="img/xing.png"/>-->
+<!--				<span class="contacts_detail">还在因为找不到组织人员联系方式而焦头烂额吗？</span>
+				<span class="contacts_detail">还在经历从通讯名单中把电话号码复制粘贴到拨号界面的繁琐吗？</span>
+				<span class="solution"> 使用星名片，一键解决</span>-->
+				<img id="applogo" src="img/applogo.png" />
+			</div>
+		</div>
+		<section class="content">
+			<div class="detail">
+				<div class="container">
+					<img class="title" src="img/apptitle1.png"/>
+					<img id="img1" src="img/pic1.png" alt="">
+				</div>
+			</div>
+			<div class="detail">
+				<div class="container">
+					<img class="title" src="img/apptitle2.png"/>
+					<img id="img2" src="img/pic2.png" alt="">
+				</div>
+			</div>
+			<div class="detail">
+				<div class="container">
+					<img class="title" src="img/apptitle3.png" style="width: 70%;"/>
+					<img id="img3" src="img/pic3.png" alt="">
+				</div>
+			</div>
+		<div id="downloadpage">
+			<span>扫一扫</span>
+			<div class="downloadcontainer">
+				<img id="download" src="img/downloadApp.png"/>
+				<img id="scan" src="img/weixin.png"/>
+			</div>	
+		</div>
+		</section>
+		<footer>
+			<div class="footer">
+				<span>华南理工大学广州学院801</span>
+				<span>Copyright&copy;2006-2015星空创新中心</span>
+			</div>
+		</footer>
+		</div>
+		</div>
+		<script type="text/javascript">
+			window.onload = function(){
+				! function(){
+					var device_H = document.body.clientHeight;
+					var device_W = document.body.clientWidth;
+					var viewWin = document.querySelector('#view');
+					var bannerH = document.querySelector('.banner');
+					var page = document.querySelectorAll('div.detail');
+					var postImg = document.querySelectorAll('.container img');
+					var flag = true;
+					var i;
+					for(i = 0; i<page.length;i++){
+						page[i].style.height = device_H + 'px';
+					}
+					for(i = 0; i<postImg.length;i++){
+						postImg[i].style.marginLeft = '-' + postImg[i].width/2 + 'px';
+						
+					}
+					bannerH.style.height = device_H - 35 + 'px';
+					viewWin.style.width = device_W + 'px';
+					//viewWin.style.height = device_H + 'px';
+					//animation(viewWin,flag);
+				}();
+				
+				function animation(viewWin,flag){
+					var touchStart, touchEnd;
+					viewWin.addEventListener('touchstart',function(e){
+						e.preventDefault();
+						var touchStart = e.targetTouches[0];
+						console.log(touchStart.clientX);
+						console.log(touchStart.pageX);
+					},false);
+					
+					viewWin.addEventListener('touchmove',function(e){
+						e.preventDefault();
+						console.log(e.clientX);
+					},false);
+					
+					viewWin.addEventListener('touchend',function(e){
+						e.preventDefault();
+						touchEnd = e.targetTouches[0];
+						//console.log(touchStart.clientX);
+						//console.log(touchEnd.pageX);
+					},false);
+				}
+			}
+		</script>
+	</body>
+</html>
